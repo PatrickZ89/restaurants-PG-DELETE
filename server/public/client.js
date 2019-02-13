@@ -6,7 +6,7 @@ $(document).ready(onReady);
 
 function onReady(){
     console.log('jQuery is ready');
-                                //NEEDED A DESCENDENT SELECTOR
+    //NEEDED A DESCENDENT SELECTOR
     $('#restaurantBody').on('click', '.deleteButton', handleDeleteClick);
     $('#submitButton').on('click', handleSubmitClick);
 
@@ -39,7 +39,7 @@ function handleSubmitClick() {
         }
         )
     })
-    
+
 }
 
 
@@ -72,14 +72,14 @@ function appendTable() {
         $('#restaurantBody').empty();
         response.forEach(function(restaurant){   
 
-        $('#restaurantBody').append(
+            $('#restaurantBody').append(
         
-        `<tr>
-        <td>${restaurant.name}</td>
-        <td>${restaurant.type}</td> 
-        <td><button class="deleteButton" data-index="${restaurant.id}" >Delete</button></td>
-        </tr>`
-        )
-    });
+                `<tr>
+                    <td>${restaurant.name}</td>
+                    <td>${restaurant.type}</td> 
+                    <td><button class="deleteButton" data-index="${restaurant.id}" >Delete</button></td>
+                </tr>`
+            )
+        });
     })
 }
