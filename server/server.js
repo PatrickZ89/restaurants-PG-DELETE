@@ -3,7 +3,9 @@ const app = express();
 // const pg = require('pg');
 const bodyParser = require( 'body-parser' );
 const PORT = 5000;
-const pool = require('./modules/pool')
+//const pool = require('./modules/pool');
+
+const restaurantrouter = require('./routes/restaurant.router');
 
 
 
@@ -16,6 +18,9 @@ const pool = require('./modules/pool')
 // });
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+app.use('/', restaurantrouter);
 
 
 // serve back static files
@@ -35,36 +40,36 @@ app.listen(PORT, function(){
     
 // });
 
-app.get('/restaurants', (req, res) => {
-    pool.query('SELECT * FROM "restaurants"')
-    .then((response) => {
-        // console.log('response:', response.rows);
+// app.get('/restaurants', (req, res) => {
+//     pool.query('SELECT * FROM "restaurants"')
+//     .then((response) => {
+//         // console.log('response:', response.rows);
        
-       res.send(response.rows);
-    }).catch((error) => {
-        console.log('error with restaurant select:', error);
-        res.sendStatus(500);
-    })
-});
+//        res.send(response.rows);
+//     }).catch((error) => {
+//         console.log('error with restaurant select:', error);
+//         res.sendStatus(500);
+//     })
+// });
 
 
-app.post('/new', (req, res) => {
-    console.log('/restuarants post route was hit');
-    pool.query(`INSERT INTO "restaurants" ("name", "type")
-    VALUES ( $1, $2 );`, [req.body.name, req.body.type])
-    .then(() => {
-        res.sendStatus(200)
-    }).catch((error) => {
-        console.log('error with restuarant insert:', error);
-        res.sendStatus(500)
-    })
-});
+// app.post('/new', (req, res) => {
+//     console.log('/restuarants post route was hit');
+//     pool.query(`INSERT INTO "restaurants" ("name", "type")
+//     VALUES ( $1, $2 );`, [req.body.name, req.body.type])
+//     .then(() => {
+//         res.sendStatus(200)
+//     }).catch((error) => {
+//         console.log('error with restuarant insert:', error);
+//         res.sendStatus(500)
+//     })
+// });
 
-app.delete('/restaurants', (req, res) => {
-    console.log('in /restaurants DELETE:', req.body);
-    pool.query(`DELETE FROM "restaurants" WHERE ("id" = ${req.body.index})`)
-    res.send('ribbet');
+// app.delete('/restaurants', (req, res) => {
+//     console.log('in /restaurants DELETE:', req.body);
+//     pool.query(`DELETE FROM "restaurants" WHERE ("id" = ${req.body.index})`)
+//     res.send('ribbet');
 
 
-})
+// });
 

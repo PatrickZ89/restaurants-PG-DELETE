@@ -1,45 +1,55 @@
-.table {
+table {
     width: 100%;
     max-width: 100%;
     margin-bottom: 1rem;
+    background-color: rgba(172, 255, 47, 0.651)
+  }
+
+h1 {
+    color: rgba(255, 255, 255, 0.623)
+}
+
+
+  body {
+      background-image: url("restaurants-image.jpg")
   }
   
-  .table th,
-  .table td {
+  table th,
+  table td {
     padding: 0.75rem;
     vertical-align: top;
     border-top: 1px solid #eceeef;
   }
   
-  .table thead th {
+  table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #eceeef;
   }
   
-  .table tbody + tbody {
+  table tbody + tbody {
     border-top: 2px solid #eceeef;
   }
   
-  .table .table {
+  table table {
     background-color: #fff;
   }
   
-  .table-sm th,
-  .table-sm td {
+  table-sm th,
+  table-sm td {
     padding: 0.3rem;
   }
   
-  .table-bordered {
+  table-bordered {
     border: 1px solid #eceeef;
   }
   
-  .table-bordered th,
-  .table-bordered td {
+  table th,
+  table td {
     border: 1px solid #eceeef;
   }
   
-  .table-bordered thead th,
-  .table-bordered thead td {
+  table  thead th,
+  table  thead td {
     border-bottom-width: 2px;
   }
   
@@ -57,7 +67,7 @@
     background-color: rgba(0, 0, 0, 0.075);
   }
   
-  .table-hover .table-active:hover {
+  table .table-active:hover {
     background-color: rgba(0, 0, 0, 0.075);
   }
   
